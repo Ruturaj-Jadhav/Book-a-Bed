@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel_Hive</title>
+    <link rel="stylesheet" href="homepage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="logo">
+        <img src="hotel-hive-logo.png" alt="Hotel_Hive"></img>
+    </div>
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <div class="numbertext"></div>
+            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                class="image_slider" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext"></div>
+            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                class="image_slider" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext"></div>
+            <img src="https://images.pexels.com/photos/2814828/pexels-photo-2814828.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="image_slider" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext"></div>
+            <img src="https://cdn.pixabay.com/photo/2015/05/31/11/23/table-791167_960_720.jpg" class="image_slider"
+                style="width:100%">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <div class="boxes">
+        <form action="book" method="post">
+            <button id="checkin-btn"  class ="box1" >Check in</button>
+            <button id="checkout-btn" type="button" class ="box1" >Check out</button>
+            <input type="hidden" id="date-input" name="checkin">
+            <input type="hidden" id="date-out" name="checkout">
+            <button type="button" class="box1">Cancel Booking</button>
+            <button type="submit" class="box1 b">Book Now</button>
+        </form>
+    </div>
+
+    <div class="past">
+        <h4>ALLOW US TO INTRODUCE OURSELVES</h4>
+        <p class="info">Our story began in 2017 with the opening of Hotel Hive in Washington, DC<br> with more cities
+            coming. We create innovative experiences driven by <br>value, efficiency and local authenticity. Above all,
+            we’re passionate about<br> hospitality.</p>
+        <br>
+        <p class="info i1">Discover what the buzz is about.</p>
+        <br><br>
+        <img class="pop" src="https://hotelhive.com/wp-content/uploads/2022/05/TC_2022_L_TRANSPARENT_BG_RGB1.png">
+
+        <p class="info i2">Awarded for consistently delivering great service + hospitality excellence</p>
+        <br><br>
+        <img class="push" src="https://hotelhive.com/wp-content/uploads/2020/06/hiveWashington.jpg">
+
+    </div>
+
+
+    <script src="App.js"></script>
+    <script src="App2.js"></script>
+</body>
+
+</html>

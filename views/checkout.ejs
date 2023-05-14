@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Checkout</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <button type="submit" class="btn btn-primary" onclick="checkout(event)">Checkout</button>
+        <form id="paymentVerifyForm" action="/payment/verify" method="POST">
+            <input name="razorpay_payment_id" type="hidden" id="razorpay_payment_id" />
+            <input name="razorpay_order_id" type="hidden" id="razorpay_order_id"/>
+            <input name="razorpay_signature" type="hidden" id="razorpay_signature"/>
+            <input name="razorpay_amount" type="hidden" id="razorpay_amount"/>
+        </form>
+        
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+	<script>
+		function checkout(event) {
+			const razorpayKeyId = '<%- razorpayKeyId %>'
+			const orderId = '<%- JSON.stringify(paymentDetail.orderId) %>'
+			const options = {
+				"key": razorpayKeyId,
+				"currency": "INR",
+				"name": "Restaurant Management System",
+				"description": "Razorpay Test transaction",
+				"image": "https://previews.123rf.com/images/subhanbaghirov/subhanbaghirov1605/subhanbaghirov160500087/56875269-vector-light-bulb-icon-with-concept-of-idea-brainstorming-idea-illustration-.jpg",
+				"order_id": JSON.parse(orderId),
+				"handler": function (response){
+					document.getElementById('razorpay_payment_id').value= response.razorpay_payment_id;
+					document.getElementById('razorpay_order_id').value= response.razorpay_order_id;
+					document.getElementById('razorpay_signature').value= response.razorpay_signature;
+					document.getElementById('razorpay_amount').value= response.razorpay_amount;
+					document.getElementById("paymentVerifyForm").submit();
+				},
+				"modal": {
+					ondismiss: function() {
+						alert(`Payment Failed`)
+					}
+				},
+				"theme": {
+					"color": "#22527b"
+				}
+			};
+			const razorpay = new Razorpay(options);
+			razorpay.open();
+			event.preventDefault();
+		}
+	</script>
+    </body>
+</html>
